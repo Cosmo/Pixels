@@ -1,5 +1,5 @@
 extension Pixels {
-    public mutating func drawBox(x: Int, y: Int, width: Int, height: Int, radius: Int = 0, color: T = T.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
+    public mutating func drawBox(x: Int, y: Int, width: Int, height: Int, radius: Int = 0, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var radius = radius
         
         if radius > width / 2 || radius > height / 2 {

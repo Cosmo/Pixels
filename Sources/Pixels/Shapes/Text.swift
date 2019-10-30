@@ -106,7 +106,7 @@ extension Pixels {
         ]
     }
     
-    public mutating func drawBitmapText(text: String, x: Int, y: Int, width: Int, height: Int, dotted isDottedEnabled: Bool = false, alignment: TextAlignment, color: T = T.max, size: Int = 1) {
+    public mutating func drawBitmapText(text: String, x: Int, y: Int, width: Int, height: Int, dotted isDottedEnabled: Bool = false, alignment: TextAlignment, color: ColorDepth = ColorDepth.max, size: Int = 1) {
         let fontPixelWidth = 5
         let fontPixelHeight = 8
         

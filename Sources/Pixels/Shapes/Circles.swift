@@ -1,5 +1,5 @@
 extension Pixels {
-    public mutating func drawCircle(xm: Int, ym: Int, radius: Int, color: T = T.max, corners: Corners = .all, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
+    public mutating func drawCircle(xm: Int, ym: Int, radius: Int, color: ColorDepth = ColorDepth.max, corners: Corners = .all, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var x = -radius
         var y = 0
         var error = 2 - 2 * radius

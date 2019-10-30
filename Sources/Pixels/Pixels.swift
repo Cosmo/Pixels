@@ -1,15 +1,15 @@
-public struct Pixels<T: FixedWidthInteger & UnsignedInteger> {
-    public var bytes: [T]
+public struct Pixels<ColorDepth: FixedWidthInteger & UnsignedInteger> {
+    public var bytes: [ColorDepth]
     public var canvasWidth: Int
     public var canvasHeight: Int
     
     public init(width: Int, height: Int) {
         self.canvasWidth = width
         self.canvasHeight = height
-        bytes = [T](repeating: 0, count: width * height)
+        bytes = [ColorDepth](repeating: 0, count: width * height)
     }
     
-    public mutating func setPixel(x: Int, y: Int, color: T = T.max) {
+    public mutating func setPixel(x: Int, y: Int, color: ColorDepth = ColorDepth.max) {
         guard (0..<(canvasWidth)).contains(x) && (0..<(canvasHeight)).contains(y) else {
             return
         }
@@ -20,7 +20,7 @@ public struct Pixels<T: FixedWidthInteger & UnsignedInteger> {
         }
     }
     
-    public mutating func setPixel(x: Int, y: Int, color: T = T.max, brushSize: Int = 1) {
+    public mutating func setPixel(x: Int, y: Int, color: ColorDepth = ColorDepth.max, brushSize: Int = 1) {
         let offset = (brushSize / 2)
         
         for blubX in 0..<brushSize {

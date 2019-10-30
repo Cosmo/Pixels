@@ -1,5 +1,5 @@
 extension Pixels {
-    public mutating func drawLine(x1: Int, y1: Int, x2: Int, y2: Int, color: T = T.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
+    public mutating func drawLine(x1: Int, y1: Int, x2: Int, y2: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var x1 = x1
         var y1 = y1
         
@@ -34,7 +34,7 @@ extension Pixels {
         }
     }
     
-    public mutating func drawHorizontalLine(x: Int, y: Int, width: Int, color: T = T.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
+    public mutating func drawHorizontalLine(x: Int, y: Int, width: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var shouldDraw = true
         if width > 0 {
             (0..<width).forEach { (index) in
@@ -48,7 +48,7 @@ extension Pixels {
         }
     }
     
-    public mutating func drawVerticalLine(x: Int, y: Int, height: Int, color: T = T.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
+    public mutating func drawVerticalLine(x: Int, y: Int, height: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var shouldDraw = true
         (0..<height).forEach { (index) in
             if shouldDraw {

@@ -18,10 +18,10 @@ extension Pixels {
         
         let colorSpace: CGColorSpace
         let bitmapInfo: UInt32
-        if T.bitWidth == UInt8.bitWidth {
+        if ColorDepth.bitWidth == UInt8.bitWidth {
             colorSpace = CGColorSpaceCreateDeviceGray()
             bitmapInfo = CGImageAlphaInfo.none.rawValue
-        } else if T.bitWidth == UInt16.bitWidth {
+        } else if ColorDepth.bitWidth == UInt16.bitWidth {
             colorSpace = CGColorSpaceCreateDeviceRGB()
             bitmapInfo = CGBitmapInfo.byteOrder16Little.rawValue + CGImageAlphaInfo.noneSkipLast.rawValue
         } else {
@@ -33,7 +33,7 @@ extension Pixels {
             return nil
         }
         
-        guard let bitmapContext = CGContext(data: dataPointer, width: canvasWidth, height: canvasHeight, bitsPerComponent: UInt8.bitWidth, bytesPerRow: canvasWidth * (T.bitWidth / UInt8.bitWidth), space: colorSpace, bitmapInfo: bitmapInfo) else {
+        guard let bitmapContext = CGContext(data: dataPointer, width: canvasWidth, height: canvasHeight, bitsPerComponent: UInt8.bitWidth, bytesPerRow: canvasWidth * (ColorDepth.bitWidth / UInt8.bitWidth), space: colorSpace, bitmapInfo: bitmapInfo) else {
             print("context is nil")
             return nil
         }
