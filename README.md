@@ -3,6 +3,7 @@
 Pixels is a low level graphics library written in Swift. 
 
 Warning: This project is not intended for productive use.
+
 It only serves as a UI library for the [SwiftUIEmbedded](https://github.com/Cosmo/SwiftUIEmbedded) project.
 
 
