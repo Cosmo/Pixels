@@ -134,7 +134,8 @@ extension Pixels {
                             (0..<size).forEach { (yExtra) in
                                 if shouldDraw {
                                     setPixel(x: (x+(x2*size) + ((letterIndex % numberOfLettersPerLine) * ((fontPixelWidth * size) + (1 * size)))) + xExtra,
-                                             y: y+(y2*size) + yExtra + offsetY)
+                                             y: y+(y2*size) + yExtra + offsetY,
+                                             color: color)
                                 }
                                 if isDottedEnabled {
                                     shouldDraw = !shouldDraw
