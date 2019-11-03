@@ -10,14 +10,14 @@ extension Pixels {
         var err = dx+dy
         var e2: Int
         
-        var shouldDraw: Bool = true
+        var shouldDraw = 0
         
         while true {
-            if shouldDraw {
+            if shouldDraw % (brushSize * 2) == 0 {
                 setPixel(x: x1, y: y1, color: color, brushSize: brushSize)
             }
             if isDottedEnabled {
-                shouldDraw = !shouldDraw
+                shouldDraw += 1
             }
             if (x1 == x2 && y1 == y2) {
                 break
@@ -35,27 +35,27 @@ extension Pixels {
     }
     
     public mutating func drawHorizontalLine(x: Int, y: Int, width: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
-        var shouldDraw = true
+        var shouldDraw = 0
         if width > 0 {
             (0..<width).forEach { (index) in
-                if shouldDraw {
+                if shouldDraw % (brushSize * 2) == 0 {
                     setPixel(x: x + index, y: y, color: color, brushSize: brushSize)
                 }
                 if isDottedEnabled {
-                    shouldDraw = !shouldDraw
+                    shouldDraw += 1
                 }
             }
         }
     }
     
     public mutating func drawVerticalLine(x: Int, y: Int, height: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
-        var shouldDraw = true
+        var shouldDraw = 0
         (0..<height).forEach { (index) in
-            if shouldDraw {
+            if shouldDraw % (brushSize * 2) == 0 {
                 setPixel(x: x, y: y + index, color: color, brushSize: brushSize)
             }
             if isDottedEnabled {
-                shouldDraw = !shouldDraw
+                shouldDraw += 1
             }
         }
     }
