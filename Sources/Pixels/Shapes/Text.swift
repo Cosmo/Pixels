@@ -118,6 +118,10 @@ extension Pixels {
         
         var offsetY = 0
         
+        guard numberOfLettersPerLine > 0 else {
+            return
+        }
+        
         Array(text).forEach { (character) in
             let index = Int(character.asciiValue!) - 32
             let letterBitmap = font[index]
