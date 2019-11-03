@@ -9,12 +9,7 @@ public typealias OSImage = NSImage
 #if os(iOS) || os(watchOS) || os(tvOS) || os(OSX)
 extension Pixels {
     public func image() -> OSImage? {
-        guard bytes.count >= 8 else { return nil }
-        
-        guard bytes.count >= canvasWidth * canvasHeight else {
-            print("data not large enough to hold \(canvasWidth)x\(canvasHeight)")
-            return nil
-        }
+        guard bytes.count >= canvasWidth * canvasHeight else { return nil }
         
         let colorSpace: CGColorSpace
         let bitmapInfo: UInt32
