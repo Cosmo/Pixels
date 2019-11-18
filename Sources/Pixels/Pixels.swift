@@ -3,10 +3,10 @@ public struct Pixels<ColorDepth: FixedWidthInteger & UnsignedInteger> {
     public var canvasWidth: Int
     public var canvasHeight: Int
     
-    public init(width: Int, height: Int) {
+    public init(width: Int, height: Int, canvasColor: ColorDepth = ColorDepth.max) {
         self.canvasWidth = width
         self.canvasHeight = height
-        bytes = [ColorDepth](repeating: 0, count: width * height)
+        bytes = [ColorDepth](repeating: canvasColor, count: width * height)
     }
     
     public mutating func setPixel(x: Int, y: Int, color: ColorDepth = ColorDepth.max) {
