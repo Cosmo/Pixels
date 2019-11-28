@@ -8,10 +8,10 @@ extension Pixels {
         repeat {
             if shouldDraw {
                 if corners.contains(.top) {
-                    drawLine(x1: xm + x, y1: ym - y, x2: xm - x, y2: ym - y, brushSize: brushSize)
+                    drawLine(x1: xm + x, y1: ym - y, x2: xm - x, y2: ym - y, color: color, brushSize: brushSize)
                 }
                 if corners.contains(.bottom) {
-                    drawLine(x1: xm + x, y1: ym + y, x2: xm - x, y2: ym + y, brushSize: brushSize)
+                    drawLine(x1: xm + x, y1: ym + y, x2: xm - x, y2: ym + y, color: color, brushSize: brushSize)
                 }
                 if corners.contains(.leftTop) {
                     setPixel(x: xm + x, y: ym - y, color: color, brushSize: brushSize)
