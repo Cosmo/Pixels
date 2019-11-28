@@ -32,9 +32,9 @@ public struct Pixels<ColorDepth: FixedWidthInteger & UnsignedInteger> {
         }
     }
     
-    public mutating func clear() {
+    public mutating func clear(canvasColor: ColorDepth = ColorDepth.max) {
         (0..<(bytes.count)).forEach { (index) in
-            bytes[index] = 0
+            bytes[index] = canvasColor
         }
     }
 }
