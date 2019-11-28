@@ -123,29 +123,32 @@ extension Pixels {
         }
         
         Array(text).forEach { (character) in
-            let index = Int(character.asciiValue!) - 32
-            let letterBitmap = font[index]
-            
-            (0..<fontPixelWidth).forEach { (x2) in
-                (0..<fontPixelHeight).forEach { (y2) in
-                    if(letterBitmap[x2] & (1 << UInt8(y2)) != 0) {
-                        offsetY = (letterIndex / numberOfLettersPerLine) * (fontPixelHeight + 1) * size
-                        (0..<size).forEach { (xExtra) in
-                            (0..<size).forEach { (yExtra) in
-                                if shouldDraw {
-                                    setPixel(x: (x+(x2*size) + ((letterIndex % numberOfLettersPerLine) * ((fontPixelWidth * size) + (1 * size)))) + xExtra,
-                                             y: y+(y2*size) + yExtra + offsetY,
-                                             color: color)
-                                }
-                                if isDottedEnabled {
-                                    shouldDraw = !shouldDraw
+            if let asciiValue = character.asciiValue {
+                let index = Int(asciiValue) - 32
+                if index < font.count {
+                    let letterBitmap = font[index]
+                    
+                    (0..<fontPixelWidth).forEach { (x2) in
+                        (0..<fontPixelHeight).forEach { (y2) in
+                            if(letterBitmap[x2] & (1 << UInt8(y2)) != 0) {
+                                offsetY = (letterIndex / numberOfLettersPerLine) * (fontPixelHeight + 1) * size
+                                (0..<size).forEach { (xExtra) in
+                                    (0..<size).forEach { (yExtra) in
+                                        if shouldDraw {
+                                            setPixel(x: (x+(x2*size) + ((letterIndex % numberOfLettersPerLine) * ((fontPixelWidth * size) + (1 * size)))) + xExtra,
+                                                     y: y+(y2*size) + yExtra + offsetY,
+                                                     color: color)
+                                        }
+                                        if isDottedEnabled {
+                                            shouldDraw = !shouldDraw
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            
             letterIndex = letterIndex + 1
         }
     }
