@@ -13,7 +13,7 @@ extension Pixels {
         for character in text {
             var offset = 0
             if advance > 0 {
-                offset += 2
+                offset += (font.height / 12)
             }
             if let description = font.characterDescription(character) {
                 if offset + advance + description.width > width {

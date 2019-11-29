@@ -26,7 +26,7 @@ extension PixelFont {
             let characterWidth = characterDescription(character)?.width ?? 0
             var offset = 0
             if advance > 0 {
-                offset += 2
+                offset += (height / 12)
             }
             if advance + offset + characterWidth > size.width {
                 lines += 1
@@ -36,9 +36,7 @@ extension PixelFont {
             maxWidth = max(maxWidth, advance)
         }
         
-        let value = (width: maxWidth, height: lines * height)
-        
-        return value
+        return (width: maxWidth, height: lines * height)
     }
     
     public func pixelFrom(x: Int, y: Int, of character: Character) -> Bool {
