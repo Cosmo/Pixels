@@ -1,5 +1,3 @@
-
-
 extension Pixels {
     public enum TextAlignment {
         case left
