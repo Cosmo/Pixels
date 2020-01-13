@@ -7,8 +7,10 @@ extension Pixels {
         }
         
         if isFilled {
-            for lineIndex in 0..<height {
-                drawHorizontalLine(x: x, y: y + lineIndex, width: width, color: color, dotted: isDottedEnabled, brushSize: brushSize)
+            if height > 0 {
+                for lineIndex in 0..<height {
+                    drawHorizontalLine(x: x, y: y + lineIndex, width: width, color: color, dotted: isDottedEnabled, brushSize: brushSize)
+                }
             }
         } else {
             drawHorizontalLine(x: x + radius, y: y, width: width - radius * 2, color: color, dotted: isDottedEnabled, brushSize: brushSize)
