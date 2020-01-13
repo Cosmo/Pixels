@@ -50,12 +50,14 @@ extension Pixels {
     
     public mutating func drawVerticalLine(x: Int, y: Int, height: Int, color: ColorDepth = ColorDepth.max, dotted isDottedEnabled: Bool = false, brushSize: Int = 1) {
         var shouldDraw = 0
-        (0..<height).forEach { (index) in
-            if shouldDraw % (brushSize * 2) == 0 {
-                setPixel(x: x, y: y + index, color: color, brushSize: brushSize)
-            }
-            if isDottedEnabled {
-                shouldDraw += 1
+        if height > 0 {
+            (0..<height).forEach { (index) in
+                if shouldDraw % (brushSize * 2) == 0 {
+                    setPixel(x: x, y: y + index, color: color, brushSize: brushSize)
+                }
+                if isDottedEnabled {
+                    shouldDraw += 1
+                }
             }
         }
     }
