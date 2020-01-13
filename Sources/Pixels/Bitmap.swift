@@ -1,12 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Devran on 03.11.19.
-//
-
-import Foundation
-
 extension Pixels {
     public mutating func drawBitmap(bytes: [UInt8], x: Int, y: Int, width: Int, height: Int, color: ColorDepth = ColorDepth.min) {
         var line = 0
