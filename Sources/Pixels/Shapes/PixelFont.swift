@@ -1,9 +1,7 @@
 #if canImport(Foundation)
 import Foundation
 #else
-func ceil(_ value: Double) -> Double {
-    return Double(Int(value + 0.5))
-}
+import CoreGraphicsShim
 #endif
 
 public typealias CharacterDescription = (width: Int, index: Int)
